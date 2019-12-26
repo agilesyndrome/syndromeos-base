@@ -9,7 +9,7 @@ publish: login
 	docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com/$(IMAGE_REPO_NAME):$(ARTIFACT_REF)
 
 publish_master: login
-	docker tag $(IMAGE_REPO_NAME):$(ARTIFACT_REF) $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_DEFAULT_REGION).amazon    aws.com/$(IMAGE_REPO_NAME):latest
+	docker tag $(IMAGE_REPO_NAME):$(ARTIFACT_REF) $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com/$(IMAGE_REPO_NAME):latest
 	docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com/$(IMAGE_REPO_NAME):latest
 
 build:
