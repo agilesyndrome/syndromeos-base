@@ -1,0 +1,23 @@
+version: '3'
+services:
+  base:
+    build:
+     context: .
+     args:
+      buildId: 1
+      opensslVersion: 1.0.2u
+    image: "syndromeos:latest"
+    environment:
+      - "DATA_DIR=/data"
+      - "SIGN_KEY=easleyowl4u"
+      - "CLUSTER_NAME=prod"
+    volumes:
+      - "nfsapi:/app"
+
+volumes:
+  nfsapi:
+    driver_opts:
+      type: nfs
+      o: addr=fs-00869079.efs.us-east-2.amazonaws.com,rw,nolock,soft,nfsvers=4.1
+      device: "/:/${SYNDROME_PROJECT}"  # location on nfs server of file/dir you want to mount
+
