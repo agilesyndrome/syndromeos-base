@@ -18,7 +18,7 @@ jobs:
     - name: Build the Docker image
       run: |
         CONTAINER_REF=branch-$(echo "${GITHUB_REF}" | awk '{n=split($0,a,"/"); print a[n]}')
-        docker build . --file Dockerfile --tag agilesyndrome/syndromeos:${CONTAINER_REF}
+        docker build . --file Dockerfile --tag docker.pkg.github.com/agilesyndrome/syndromeos-base/syndromeos:${CONTAINER_REF}
     - name: Publish
       run: |
         CONTAINER_REF=branch-$(echo "${GITHUB_REF}" | awk '{n=split($0,a,"/"); print a[n]}')
