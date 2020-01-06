@@ -18,8 +18,8 @@ jobs:
     - name: Build the Docker image
       run: |
         CONTAINER_REF=branch-$(echo "${GITHUB_REF}" | awk '{n=split($0,a,"/"); print a[n]}')
-        docker build . --file Dockerfile --tag docker.pkg.github.com/{{ github.repository }}/syndromeos:${CONTAINER_REF}
+        docker build . --file Dockerfile --tag docker.pkg.github.com/${GITHUB_REPOSITORY}/syndromeos:${CONTAINER_REF}
     - name: Publish
       run: |
         CONTAINER_REF=branch-$(echo "${GITHUB_REF}" | awk '{n=split($0,a,"/"); print a[n]}')
-        docker push docker.pkg.github.com/{{ github.repository }}/syndromeos:${CONTAINER_REF}
+        docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/syndromeos:${CONTAINER_REF}
