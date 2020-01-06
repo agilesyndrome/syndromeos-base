@@ -10,5 +10,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Login to Github Packages
+      run: docker login docker.pkg.github.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+      env:
+        DOCKER_USERNAME: ${{ secrets.GITHUB_BUILDER }}
+        DOCKER_PASSWORD: ${{ secrets.GITHUB_BUILDER_TOKEN }}
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag agilesyndrome/syndromeos:$(date +%s)
