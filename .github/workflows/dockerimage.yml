@@ -17,9 +17,9 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.GITHUB_BUILDER_TOKEN }}
     - name: Build the Docker image
       run: |
-        CONTAINER_REF=branch-$(echo "${GITHUB_REF}" | awk '{n=split($0,a,"/"); print a[n]}')
+        CONTAINER_REF=branch-$(echo "${GITHUB_REF}" | awk '{n=split($0,a,"/"); print a[n]}' | sed 's/branch-master/latest')
         docker build . --file Dockerfile --tag docker.pkg.github.com/${GITHUB_REPOSITORY}/syndromeos:${CONTAINER_REF}
     - name: Publish
       run: |
-        CONTAINER_REF=branch-$(echo "${GITHUB_REF}" | awk '{n=split($0,a,"/"); print a[n]}')
+        CONTAINER_REF=branch-$(echo "${GITHUB_REF}" | awk '{n=split($0,a,"/"); print a[n]}' | sed 's/branch-master/latest')
         docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/syndromeos:${CONTAINER_REF}
