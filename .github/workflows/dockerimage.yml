@@ -8,14 +8,9 @@ on:
   schedule: 
     - cron:  '00 00 * * *'
 
-on: [push]
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Login to Github Packages
