@@ -38,7 +38,7 @@ RUN set -eux \
  && chmod +x /usr/bin/tini \
  && curl -LO https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz \
  && tar --strip-components 1 -xzvf openssl-${OPENSSL_VERSION}.tar.gz \
- && ./config --prefix=/usr/local/ssl --openssldir=/usr/openssl shared zlib \
+ && ./config --prefix=/usr/local/ssl --openssldir=/usr/openssl shared zlib no-legacy \
  && make \
  && make test \
  && make install \
