@@ -2,7 +2,7 @@ ARG buildId
 FROM ubuntu:bionic
 LABEL maintainer="AgileSyndro.me"
 
-ARG opensslVersion=1.0.2u
+ARG opensslVersion=1.1.1d
 ARG tiniVersion=v0.18.0
 
 ENV BASE_BUILD_ID=${buildId}
