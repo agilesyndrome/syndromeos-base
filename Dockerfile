@@ -48,7 +48,8 @@ RUN set -eux \
  && rm /usr/bin/openssl \
  && mkdir -p /app/src \
  && mkdir -p /app/data \
- && chown -R ${APP_USER}:${APP_USER} /app
+ && chown -R ${APP_USER}:${APP_USER} /app \
+ && rm -rf /build
 
 ENV PATH ${PATH}:/usr/local/ssl/bin
 ENV OPENSSL_PATH /usr/local/ssl
